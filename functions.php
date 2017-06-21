@@ -105,5 +105,38 @@ return 'large';
 //this is a wp function for image viewer box
 add_action( 'wp_enqueue_scripts', 'add_thickbox' );
 
+/*
+*
+*Removes items from the user profile page for subscribers
+*by using js to remove the items
+*
+*url: https://isabelcastillo.com/hide-personal-options-wordpress-admin-profile
+*
+*/
+function remove_personal_options(){
+
+    echo '<script type="text/javascript">jQuery(document).ready(function($) {
+	$(\'form#your-profile > h2:first\').remove(); // remove the "Personal Options" title
+	$(\'form#your-profile tr.user-rich-editing-wrap\').remove(); // remove the "Visual Editor" field
+	$(\'form#your-profile tr.user-admin-color-wrap\').remove(); // remove the "Admin Color Scheme" field
+	$(\'form#your-profile tr.user-comment-shortcuts-wrap\').remove(); // remove the "Keyboard Shortcuts" field
+	$(\'form#your-profile tr.user-admin-bar-front-wrap\').remove(); // remove the "Toolbar" field
+	$(\'form#your-profile tr.user-language-wrap\').remove(); // remove the "Language" field
+	$(\'form#your-profile tr.user-first-name-wrap\').remove(); // remove the "First Name" field
+	$(\'form#your-profile tr.user-last-name-wrap\').remove(); // remove the "Last Name" field
+	$(\'form#your-profile tr.user-nickname-wrap\').hide(); // Hide the "nickname" field
+	$(\'table.form-table tr.user-display-name-wrap\').remove(); // remove the âDisplay name publicly asâ field
+	$(\'table.form-table tr.user-url-wrap\').remove();// remove the "Website" field in the "Contact Info" section
+	$(\'h2:contains("About Yourself"), h2:contains("About the user")\').remove(); // remove the "About Yourself" and "About the user" titles
+	$(\'form#your-profile tr.user-description-wrap\').remove(); // remove the "Biographical Info" field
+	$(\'form#your-profile tr.user-profile-picture\').remove(); // remove the "Profile Picture" field
+	$(\'table.form-table tr.user-aim-wrap\').remove(); // remove the AOL instant messenger field
+	$(\'table.form-table tr.user-yim-wrap\').remove(); // remove the Yahoo instant messenger field
+	$(\'table.form-table tr.user-jabber-wrap\').remove(); // remove the Jabber field
+});</script>';
+}
+
+add_action('admin_head','remove_personal_options');
+
 
 ?>
