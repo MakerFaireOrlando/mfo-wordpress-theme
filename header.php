@@ -74,13 +74,13 @@
           <span class="icon-bar"></span>
         </a>
         <a href="/">
-        <img class="header-logo" src="/wp-content/uploads/2017/05/Orlando_MF_Logo.png" alt="Maker Faire logo" scale="0">
+        <img class="header-logo" src="/wp-content/uploads/2017/05/Orlando_MF_Logo.png" alt="Maker Faire logo">
         </a>
       </div>
 
       <div id="nav-not-home-logo">
         <a href="/">
-          <img src="/wp-content/uploads/2017/05/Orlando_MF_Logo.png" alt="Maker Faire logo" scale="0">
+          <img src="/wp-content/uploads/2017/05/Orlando_MF_Logo.png" alt="Maker Faire logo">
         </a>
       </div>
 
