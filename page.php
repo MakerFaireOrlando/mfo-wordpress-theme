@@ -17,8 +17,9 @@ get_header(); ?>
 
 					<div class="container">
 						<?php the_content(); ?>
-						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'coraline' ), 'after' => '</div>' ) ); ?>
-						<?php edit_post_link( __( 'Edit', 'maker-faire-online' ), '<span class="edit-link">', '</span>' ); ?>
+						<div class="linked-pages"><?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'coraline' ), 'after' => '</div>' ) ); ?>
+						<?php edit_post_link( __( 'Edit', 'maker-faire-online' ),
+							 '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- #container -->
 				</div><!-- #post-## -->
 
@@ -29,6 +30,5 @@ get_header(); ?>
 			</div><!-- #page-body -->
 		</div><!-- #page-content -->
 
-<?php/* get_sidebar(); */?>
 
 <?php get_footer(); ?>
