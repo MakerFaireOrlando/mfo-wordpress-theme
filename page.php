@@ -15,19 +15,19 @@ get_header(); ?>
 				<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					
 
-					<div class="entry-content">
+					<div class="container">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'coraline' ), 'after' => '</div>' ) ); ?>
-						<?php edit_post_link( __( 'Edit', 'coraline' ), '<span class="edit-link">', '</span>' ); ?>
-					</div><!-- .entry-content -->
+						<?php edit_post_link( __( 'Edit', 'maker-faire-online' ), '<span class="edit-link">', '</span>' ); ?>
+					</div><!-- #container -->
 				</div><!-- #post-## -->
 
 				<?php comments_template( '', true ); ?>
 
 			<?php endwhile; ?>
 
-			</div><!-- #content -->
-		</div><!-- #content-container -->
+			</div><!-- #page-body -->
+		</div><!-- #page-content -->
 
 <?php/* get_sidebar(); */?>
 
