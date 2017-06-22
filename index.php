@@ -12,6 +12,5 @@ get_header(); ?>
 			<?php echo do_shortcode('[rev_slider mainfw1]'); ?><br>
 		 	<?php echo do_shortcode("[wpv-post-body view_template='what-is-maker-faire']") ?>
 	</div><!-- #page-body -->
-  </div><!-- #page-content -->
 
 <?php get_footer(); ?>
