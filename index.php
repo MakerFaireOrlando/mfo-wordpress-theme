@@ -8,15 +8,10 @@
 get_header(); ?>
 
   <div id="page-content">
-                        <div id="page-body">
-
+  	<div id="page-body">
 			<?php echo do_shortcode('[rev_slider mainfw1]'); ?><br>
-
-			 <?php echo do_shortcode("[wpv-post-body view_template='what-is-maker-faire']") ?>
-
-</div>
-			
-			</div><!-- #content -->
-		</div><!-- #content-container -->
+		 	<?php echo do_shortcode("[wpv-post-body view_template='what-is-maker-faire']") ?>
+	</div><!-- #page-body -->
+  </div><!-- #page-content -->
 
 <?php get_footer(); ?>
