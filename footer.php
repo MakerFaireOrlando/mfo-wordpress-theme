@@ -7,11 +7,9 @@
  * CHANGE FOR MINIMAKERFAIRE THEME: Added MiniMakerFaire theme name, left the Coraline acknowledgement
  */
 ?>
-	</div><!-- #content-box -->
-	<?php echo do_shortcode("[wpv-post-body view_template='Footer2']") ?> </span>
 
-
-</div><!-- #container -->
+<?php echo do_shortcode("[wpv-post-body view_template='Footer2']") ?> 
+</div><!--page-content -->
 
 <?php wp_footer(); ?>
 
