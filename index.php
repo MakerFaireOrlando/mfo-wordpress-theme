@@ -14,7 +14,8 @@ get_header(); ?>
 			<section class="recent-post-panel">
  		          <div class="container">
 				<div class="row padbottom text-center">
-            			   <img class="robot-head" src="<?php echo get_template_directory_uri(); ?>/images/news-icon.png" alt="News icon" data-pin-nopin="true" scale="0">
+            			   <img class="robot-head" src="<?php echo get_template_directory_uri(); ?>/images/news-icon.png" alt="News icon" data-pin-nopin="true"
+>
             			   <div class="title-w-border-r">
               			      <h2>Latest News</h2>
             			   </div>
@@ -37,12 +38,16 @@ get_header(); ?>
                   				<p class="recent-post-date">' . get_the_date( 'l F j, Y' , $post_id) . '</p>
                   				<p class="recent-post-description">' . wp_strip_all_tags(get_the_excerpt($post_id), true) . '</p>
                				     </div>
-              				     </a></div>';
+              				     </a></article></div>';
 
 						//note: excerpts still not working right - look at interactions with yoast.
 				}
 				wp_reset_query();
 				?>
+				<div class="col-xs-12 padtop padbottom text-center">
+			          <a class="btn btn-b-ghost" href="/news">More News</a>
+				</div><!-- #button div -->
+				</div><!-- #row -->
 				</div><!-- #container -->
 				<div class="flag-banner"></div>
 
