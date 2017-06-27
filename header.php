@@ -96,7 +96,8 @@
 						'fallback_cb'       	=> 'WP_Bootstrap_Navwalker::fallback',
                 				'walker'            	=> new WP_Bootstrap_Navwalker ) ); ?>
 
- <div id="header-cta-button"><a class="btn btn-primary" href="/exhibit-at-maker-faire-orlando">Makers Apply Here</a></div>
+ <div id="header-cta-button">
+	<a class="btn btn-primary" href="<?php echo mfo_header_button_url();?>"><?php echo mfo_header_button_text()?></a></div>
     </div>
   </nav>
 
