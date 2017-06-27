@@ -72,15 +72,19 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </a>
+        <?php 
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+	?>
+	</a>
         <a href="/">
-        <img class="header-logo" src="/wp-content/uploads/2017/05/Orlando_MF_Logo.png" alt="Maker Faire logo" >
+        <img class="header-logo" src="<?php echo $image[0]; ?>" alt="<?php echo get_bloginfo() ?>">
         </a>
       </div>
 
       <div id="nav-not-home-logo">
         <a href="/">
-          <img src="/wp-content/uploads/2017/05/Orlando_MF_Logo.png" alt="Maker Faire logo" >
+         <img src="<?php echo $image[0]; ?>" alt="<?php echo get_bloginfo() ?>">
         </a>
       </div>
 

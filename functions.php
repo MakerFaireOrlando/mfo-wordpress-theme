@@ -1,5 +1,29 @@
 <?php
 
+/**
+ * Allow the user to specify the header image in customizer
+ */
+add_theme_support( 'custom-logo', array(
+    'height'      => 50,
+    'width'       => 192,
+    'flex-height' => true,
+    'flex-width'  => true,
+    'header-text' => array( 'site-title', 'site-description' ),
+) );
+
+/**
+ * Filter the except length to 20 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+
+
 // Register Custom Navigation Walker; used to output proper bootstrap menus
 require_once('wp-bootstrap-navwalker.php');
 
