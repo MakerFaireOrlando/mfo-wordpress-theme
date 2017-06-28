@@ -1,5 +1,10 @@
 <?php
 
+// Load our main stylesheet.
+	wp_enqueue_style( 'maker-faire-online-style', get_stylesheet_uri() );
+
+
+
 /**
  * Allow the user to specify the header image in customizer
  */
