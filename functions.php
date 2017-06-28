@@ -1,7 +1,7 @@
 <?php
 
 // Load our main stylesheet.
-	wp_enqueue_style( 'maker-faire-online-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'mfo-wordpress-theme-style', get_stylesheet_uri() );
 
 
 
