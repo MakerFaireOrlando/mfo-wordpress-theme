@@ -4,7 +4,6 @@
 	wp_enqueue_style( 'mfo-wordpress-theme-style', get_stylesheet_uri() );
 
 
-
 /**
  * Allow the user to specify the header image in customizer
  */
@@ -61,7 +60,7 @@ add_action( 'wp_enqueue_scripts', 'theme_styles');
 function theme_js() {
 	global $wp_scripts;
 	wp_enqueue_script( 'bootstrap_js', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
-	wp_enqueue_script( 'slidemenu_js' , get_stylesheet_directory_uri() . '/js/slidemenu.js');
+	wp_enqueue_script( 'slidemenu_js' , get_template_directory_uri() . '/js/slidemenu.js');
 	//note slidemenu is not a library; it is online code found and used by MM and replicated here for compato
 	//todo: origin url
 }
