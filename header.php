@@ -91,7 +91,7 @@
 		<?php 	wp_nav_menu( array( 'container_id' 		=> 'slidemenu', 
 						'container_class' 	=> 'menu-header-menu-container', 
 						'menu_class' 		=>'nav navbar-nav',
-						'theme_location' 	=> 'primary',
+						'theme_location' 	=> 'header-menu',
 						'fallback_cb'       	=> 'WP_Bootstrap_Navwalker::fallback',
                 				'walker'            	=> new WP_Bootstrap_Navwalker ) ); ?>
 

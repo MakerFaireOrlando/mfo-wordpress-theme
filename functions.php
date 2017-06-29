@@ -1,7 +1,22 @@
 <?php
 
 // Load our main stylesheet.
-	wp_enqueue_style( 'mfo-wordpress-theme-style', get_stylesheet_uri() );
+//	wp_enqueue_style( 'mfo-wordpress-theme-style', get_stylesheet_uri() );
+
+
+/**
+ *Declare menu locations
+ *
+ */
+function register_mfo_menus() {
+  register_nav_menus(
+    array(
+      'header-menu' => __( 'Header Menu' ),
+      'footer-local-menu' => __( 'Footer - MF Local Menu' ),
+    )
+  );
+}
+add_action( 'init', 'register_mfo_menus' );
 
 
 /**
@@ -50,7 +65,13 @@ add_shortcode( 'get_featured_url', 'get_featured_url' );
 
 
 function theme_styles() {
-	wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' );
+
+	wp_enqueue_style( 'google-fonts-body', 'https://fonts.googleapis.com/css?family=Roboto:400,300,700,500', false );
+	wp_enqueue_style( 'google-fonts-heading', 'https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700', false);
+	wp_enqueue_style( 'bootstrap_css', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+	wp_enqueue_style( 'mfo-wordpress-theme-style', get_stylesheet_uri(),array('bootstrap_css','google-fonts-body', 'google-fonts-heading'));
+
+
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_styles');
@@ -63,6 +84,7 @@ function theme_js() {
 	wp_enqueue_script( 'slidemenu_js' , get_template_directory_uri() . '/js/slidemenu.js');
 	//note slidemenu is not a library; it is online code found and used by MM and replicated here for compato
 	//todo: origin url
+
 }
 
 add_action( 'wp_enqueue_scripts', 'theme_js');
