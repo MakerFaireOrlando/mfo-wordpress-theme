@@ -38,7 +38,7 @@ get_header(); ?>
                                    echo '<article class="recent-post-inner">
                                          <a href="' .  get_the_permalink() . '">
                                          <div class="recent-post-img" style="background-image: 
-                                                        url('. get_the_post_thumbnail_url($the_ID) 
+                                                        url('. get_the_post_thumbnail_url() 
                                                                 .'?resize=300%2C300&amp;quality=80&amp;strip=all);">
                                         </div>
                                         <div class="recent-post-text">
