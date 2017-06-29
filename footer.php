@@ -127,8 +127,7 @@
       </div>
       <div class="row padtop">
         <div class="col-xs-12">
-          <p class="copyright-footer text-center">Maker Faire Orlando is independently organized and operated under license from Maker Media, Inc.</p>
-          <p class="copyright-footer text-center">This project is funded in part by Orange County Government through the Arts & Cultural Affairs Program.</p>
+          <p class="copyright-footer text-center"><?php echo mfo_event_name()?> is independently organized and operated under license from Maker Media, Inc.</p>
         </div>
       </div>
       
