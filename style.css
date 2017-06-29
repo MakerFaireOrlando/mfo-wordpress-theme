@@ -1773,9 +1773,11 @@ body.slide-active {
     margin-bottom: 20px
 }
 
+/* This causes unneeded breaks in the news page
 .recent-post-panel .recent-post-post:nth-child(5) {
     clear: both
 }
+*/
 
 @media (max-width:767px) {
     .recent-post-panel .recent-post-post {
