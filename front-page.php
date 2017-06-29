@@ -8,13 +8,13 @@ get_header(); ?>
 
   <div id="page-content">
   	<div id="page-body">
-			<?php echo do_shortcode('[rev_slider mainfw1]'); ?><br>
-		 	<?php echo do_shortcode("[wpv-post-body view_template='what-is-maker-faire']") ?>
+			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+			<?php the_content(); ?>
+			<?php endwhile; ?>
 			<section class="recent-post-panel">
  		          <div class="container">
 				<div class="row padbottom text-center">
-            			   <img class="robot-head" src="<?php echo get_template_directory_uri(); ?>/images/news-icon.png" alt="News icon" data-pin-nopin="true"
->
+            			   <img class="robot-head" src="<?php echo get_template_directory_uri(); ?>/images/news-icon.png" alt="News icon" data-pin-nopin="true">
             			   <div class="title-w-border-r">
               			      <h2>Latest News</h2>
             			   </div>
