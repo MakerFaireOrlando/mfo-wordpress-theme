@@ -1128,9 +1128,11 @@ body.slide-active {
     }
 }
 
+/* This hides menu items - I'd rather see them and realize the menu needs to be edited
 .navbar-nav>li:nth-of-type(1n+7) {
     display: none
 }
+*/
 
 .navbar-nav>li>a {
     text-transform: uppercase;
