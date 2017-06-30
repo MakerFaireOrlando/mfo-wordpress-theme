@@ -21,7 +21,7 @@
         	$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
         ?>
 	
-            <a href="http://www.makerfaireorlando.com/">
+            <a href="/">
 	      <img class="img-responsive footer-logos footer-local-logo" src="<?php echo $image[0]; ?>" alt="<?php echo get_bloginfo() ?>">
             </a>
           </div>
