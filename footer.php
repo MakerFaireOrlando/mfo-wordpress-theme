@@ -128,6 +128,7 @@
       <div class="row padtop">
         <div class="col-xs-12">
           <p class="copyright-footer text-center"><?php echo mfo_event_name()?> is independently organized and operated under license from Maker Media, Inc.</p>
+	  <?php do_action("mfo_after_footer"); ?>
         </div>
       </div>
       
