@@ -13,7 +13,17 @@ Text Domain: mfo-wordpress-theme
 Tags: one-column, custom-menu, editor-style, featured-images, full-width-template, theme-options
 */
 
-
+/* this section was in the header of milwaukee, not in the main css 
+ * !important was added to overcome load order issue 
+ */
+a.btn,
+a.btn-b-ghost {
+	font-size: 120%;
+	color: #FFF;
+	background-color: #005980 !important;
+	border-width: 2px;
+}
+/*end section*/
 
 .flag-banner {
     width: 100%;
