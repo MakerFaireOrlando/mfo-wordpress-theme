@@ -13,6 +13,38 @@ Text Domain: mfo-wordpress-theme
 Tags: one-column, custom-menu, editor-style, featured-images, full-width-template, theme-options
 */
 
+/* center images in the carousel on an exhibit page
+ *
+ */
+.exhibitPhotos .carousel-inner > .item > img {
+    margin: 0 auto;
+    max-height:600px;
+    width: auto;
+}
+
+.exhibitPhotos .carousel-control.left, .carousel-control.right {
+   background-image:none !important;
+   filter:none !important;
+}
+
+.exhibitPhotos .single-image > img {
+    margin: 0 auto;
+    max-height:600px;
+    width: auto;
+}
+
+.exhibit-oembed {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.gmf-footer {
+    margin-top: 40px;
+}
+
 /* this section was in the header of milwaukee, not in the main css 
  * !important was added to overcome load order issue 
  */
