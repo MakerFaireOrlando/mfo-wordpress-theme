@@ -13,6 +13,15 @@ Text Domain: mfo-wordpress-theme
 Tags: one-column, custom-menu, editor-style, featured-images, full-width-template, theme-options
 */
 
+/* fix for CRED form additional images
+ *
+ */
+.wpt-credfile-preview > img {
+    max-height:500px;
+    width: auto;
+}
+
+
 /* center images in the carousel on an exhibit page
  *
  */

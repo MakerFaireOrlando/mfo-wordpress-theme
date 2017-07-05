@@ -242,5 +242,95 @@ function mfo_recent_posts () {
 
 add_shortcode ('mfo-recent-posts', 'mfo_recent_posts');
 
+/*
+ * [mfo-sponsors-carousel] shortcode
+ *
+ *
+ */
+function mfo_sponsor_carousel () {
+     $attr_year = 2017;
+
+     $ret =  '<section class="sponsor-slide">
+                  <div class="container">
+                                <div class="row sponsor_panel_title">
+                                   <div class="col-xs-12 text-center">
+                                    <div class="title-w-border-r">
+                                      <h2 class="sponsor-slide-title">Sponsors</h2>
+                                    </div>
+                                   </div>
+                                </div>
+                                <div class="row">
+      	                          <div class="col-xs-12">';
+
+
+				$args = array(
+  				'post_type'   => 'sponsor',
+  				'post_status' => 'publish',
+				'posts_per_page' => -1
+				 );
+
+				$sponsors = new WP_Query( $args );
+				if( $sponsors->have_posts() ) :
+				   $ret .= 'Got Sponsors!';
+				else: $ret .= 'No Sponsors!';
+				endif;
+
+				while( $sponsors->have_posts() ) :
+        			  $sponsors->the_post();
+				  $years = get_post_meta(get_the_ID(), 'wpcf-sponsor-event-years');
+				 $debug = var_export($years, true);
+				 //$ret .= $debug;
+				  foreach (array_filter($years) as $year) {
+ 				   //$ret.= $year.", ";
+
+				   foreach (array_filter($year) as $year_sub) {
+ 				    //$ret.= 'ys:' . $year_sub.", ";
+				 $debug = var_export($year_sub, true);
+				 //$ret .= $debug;
+
+ 				  //  $ret.= 'ys[0]:' . $year_sub[0].", ";
+ 				  //  $ret.= 'ys[1]:' . $year_sub[1].", ";
+				
+				    if ($year_sub[0] == $attr_year) $ret .= '<li>' .  get_the_title() .'</li>';
+
+				   }
+				 }
+				 endwhile;
+      				 wp_reset_postdata();
+/*
+                                $args = array( 'numberposts' => '4' );
+                                $recent_posts = wp_get_recent_posts( $args );
+                                foreach( $recent_posts as $recent ){
+                                   $post_id = $recent["ID"];
+                                   $ret.= '<div class="recent-post-post col-xs-12 col-sm-3">
+                                           <article class="recent-post-inner" id='. $post_id. '>
+                                              <a href="'. get_permalink($post_id) .'">
+                                              <div class="recent-post-img" style="background-image: 
+                                                        url('. get_the_post_thumbnail_url($post_id) 
+                                                                .'?resize=300%2C300&amp;quality=80&amp;strip=all);">
+                                                </div>
+                                             <div class="recent-post-text">
+                                                <h4>' . $recent["post_title"] . '</h4>
+                                                <p class="recent-post-date">' . get_the_date( 'l F j, Y' , $post_id) . '</p>
+                                                <p class="recent-post-description">' . wp_strip_all_tags(get_the_excerpt($post_id), true) . '</p>
+                                             </div>
+                                             </a></article></div>';
+
+                                                //note: excerpts still not working right - look at interactions with yoast.
+                                }
+                                wp_reset_query();
+*/
+
+                        $ret.= '<div class="col-xs-12 padtop padbottom text-center">
+                                  <a class="btn btn-b-ghost" href="/news">More News</a>
+                                </div><!-- #button div -->
+                                </div><!-- #row -->
+                                </div><!-- #container -->';
+
+	return $ret;
+}
+
+add_shortcode ('mfo-sponsor-carousel', 'mfo_sponsor_carousel');
+
 
 ?>
