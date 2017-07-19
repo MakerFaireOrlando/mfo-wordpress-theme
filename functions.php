@@ -209,7 +209,7 @@ function mfo_recent_posts () {
                                 </div>
                                 <div class="row">';
 
-                                $args = array( 'numberposts' => '4' );
+                                $args = array( 'numberposts' => '4' , 'post_status' => 'publish' );
                                 $recent_posts = wp_get_recent_posts( $args );
                                 foreach( $recent_posts as $recent ){
                                    $post_id = $recent["ID"];
@@ -260,7 +260,9 @@ function mfo_sponsor_carousel () {
                                    </div>
                                 </div>
                                 <div class="row">
-      	                          <div class="col-xs-12">';
+      	                          <div class="col-xs-12">
+				    <div id="carousel-sponsors-slider" class="carousel slide" data-ride"carousel">
+				    <!-- Wrapper for slides -->';
 
 
 				$args = array(
@@ -271,35 +273,57 @@ function mfo_sponsor_carousel () {
 
 				$sponsors = new WP_Query( $args );
 				if( $sponsors->have_posts() ) :
-				   $ret .= 'Got Sponsors!';
-				else: $ret .= 'No Sponsors!';
+				   //$ret .= 'Got Sponsors!';
+				else: $ret .= 'Error, no sponsors CPT found!';
 				endif;
+
+				$sponsors_out = [];
 
 				while( $sponsors->have_posts() ) :
         			  $sponsors->the_post();
 				  $years = get_post_meta(get_the_ID(), 'wpcf-sponsor-event-years');
-				 $debug = var_export($years, true);
-				 //$ret .= $debug;
+				  //$debug = var_export($years, true);
+				  //$ret .= $debug;
+
 				  foreach (array_filter($years) as $year) {
- 				   //$ret.= $year.", ";
-
 				   foreach (array_filter($year) as $year_sub) {
- 				    //$ret.= 'ys:' . $year_sub.", ";
-				 $debug = var_export($year_sub, true);
-				 //$ret .= $debug;
-
- 				  //  $ret.= 'ys[0]:' . $year_sub[0].", ";
- 				  //  $ret.= 'ys[1]:' . $year_sub[1].", ";
-				
-				    if ($year_sub[0] == $attr_year) $ret .= '<li>' .  get_the_title() .'</li>';
-
+				    if ($year_sub[0] == $attr_year) {
+					$order = intval(get_post_meta(get_the_ID(), 'wpcf-sponsor-order', true));
+					$level = intval(get_post_meta(get_the_ID(), 'wpcf-sponsor-level', true));
+					$ret .= '<li>' .  get_the_title() . '-'. $level .'</li>';
+					$arr = array($order, get_the_title(), get_the_ID() );
+					if ($level)  {
+						if (!is_array($sponsors_out[$level])){
+							 $sponsors_out[$level] = array();
+						}
+						array_push($sponsors_out[$level], $arr );
+					}
+				    }
 				   }
-				 }
-				 endwhile;
-      				 wp_reset_postdata();
+				  }
+				endwhile;
+
+				$debug = var_export($sponsors_out, true);
+                                $ret .= 'unsorted' . $debug.'<br>';
+
+				usort($sponsors_out,"cmp_sponsor");
+
+				$debug = var_export($sponsors_out, true);
+                                $ret .= 'sorted' . $debug.'<br>';
+
+				//may need a sort function like in the comments here - http://php.net/manual/en/function.asort.php
+
+
+
+      				wp_reset_postdata();
+
+				
+
+
+				//foreach ($sponsors_out as $sponsor_out) {
+				//  }
+
 /*
-                                $args = array( 'numberposts' => '4' );
-                                $recent_posts = wp_get_recent_posts( $args );
                                 foreach( $recent_posts as $recent ){
                                    $post_id = $recent["ID"];
                                    $ret.= '<div class="recent-post-post col-xs-12 col-sm-3">
@@ -331,6 +355,15 @@ function mfo_sponsor_carousel () {
 }
 
 add_shortcode ('mfo-sponsor-carousel', 'mfo_sponsor_carousel');
+
+
+function cmp_sponsor($a, $b)
+{
+    if ($a[0] == $b[0]) {
+        return 0;
+    }
+    return ($a[0] < $b[0]) ? -1 : 1;
+}
 
 
 ?>
