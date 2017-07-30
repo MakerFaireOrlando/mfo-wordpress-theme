@@ -92,3 +92,82 @@ a.btn-b-ghost {
 }
 
 
+/* STUFF FOR ISOTOPE - NEEDS TO BE CLEANED UP */
+.item {
+  /*width: 25%;*/
+  /*border: 1px solid darkgray;*/
+  background: rgb(242, 242, 242);
+  padding-top: 10px;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e5e5;
+  min-width: 300px;
+   display:inline-block;
+}
+
+.title-container {
+	max-width: 200px;
+  margin-left:auto;
+  	margin-right:auto;
+  margin-bottom: 10px;
+}
+.excerpt-container {
+max-width: 270px;
+  margin-left:auto;
+  	margin-right:auto;
+  margin-bottom: 10px;
+}
+.wp-post-image {
+	display: block;
+  	margin-left:auto;
+  	margin-right:auto;
+  	border-radius: 4px 0px 0px 4px;
+  	/* keep woocommerce img class away */
+  	max-width:none !important;
+}
+
+.img-container {
+ //min-height:300px;
+ // height:auto;
+ //padding:10px;
+ display:inline-block;
+}
+
+.img-container a {
+ display:inline-block;
+}
+
+.button-group {
+  background: rgb(242, 242, 242);
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.exhibits-container {
+margin:20px;
+}
+
+
+//makers search and filter
+
+.exhibits-search row {
+  height: 100px;
+}
+
+.mtm .mtm-search {
+ // min-height: 120px;
+  height: auto;
+  padding-bottom: 10px;
+}
+
+.search-filter-label {
+  color:#fff;
+}
+
+#maker-search-input {
+  min-width: 300px;
+}
+
