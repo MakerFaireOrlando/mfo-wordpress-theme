@@ -5,9 +5,12 @@
  */
 
 get_header(); ?>
-
+  
   <div id="page-content">
-                        <div id="page-body">
+                        <div class="container">
+			<div class="row">
+			<div class="col-xs-12">
+
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post();
 
 			$format = get_post_format();
@@ -15,28 +18,21 @@ get_header(); ?>
 			if ( false == $format)
 				$format = 'standard'; ?>
 
-		
-
 		<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<?php if ( 'standard' != $format ) : ?>
 				<a class="entry-format" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'coraline' ), get_post_format_string( get_post_format() ) ) ); ?>"><?php echo esc_html( get_post_format_string( get_post_format() ) ); ?></a>
 			<?php endif; ?>
 
-			<?php 
-			$cpt = get_post_type();
-			//print ($cpt);
-			
-			if ( $cpt =='maker'  or $cpt =='exhibit' or 
-				$cpt=='exhibit-helper' or  $cpt=='event') {
+				<div class="all-posts-btn">
+				 <a href="/news"><i class="fa fa-chevron-left" aria-hidden="true"></i> All News</a>
+				</div>
 
-			// do nothing
-			} else {
-				the_title( '<h1 class="entry-title">', '</h1>' ); 
-			}
+
+			<?php 
+			  the_title( '<h2 class="page-header">', '</h2>' ); 
 			?>
 
-			
 
 			<div class="entry-content">
 				<?php the_content(); ?>
@@ -50,16 +46,18 @@ get_header(); ?>
 				</p>
 			<?php endif; ?>
 			</div><!-- .entry-info -->
-			
 		</div><!-- #post-## -->
 
-		
 
 
 	<?php endwhile; // end of the loop. ?>
 
 	</div><!-- #content -->
-</div><!-- #content-container -->
+
+
+   </div><!-- col-xs-12 -->
+  </div><!-- row -->
+</div><!-- container -->
 
 <?php /*get_sidebar();*/ ?>
 
