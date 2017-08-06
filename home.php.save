@@ -1,33 +1,35 @@
 <?php
 /**
- * @package WordPress
- * @subpackage Coraline
- * @since Coraline 1.0
+ * Template Name: News Page
+ * Note that wordpress considers the page of recent posts the "home" page,
+ * even if it is not 
+  
  */
 
 get_header(); ?>
 
   <div id="page-content">
   	<div id="page-body">
-			<?php echo do_shortcode('[rev_slider mainfw1]'); ?><br>
-		 	<?php echo do_shortcode("[wpv-post-body view_template='what-is-maker-faire']") ?>
 			<section class="recent-post-panel">
  		          <div class="container">
-				<div class="row padbottom text-center">
-            			   <img class="robot-head" src="<?php echo get_template_directory_uri(); ?>/images/news-icon.png" alt="News icon" data-pin-nopin="true"
->
-            			   <div class="title-w-border-r">
-              			      <h2>Latest News</h2>
-            			   </div>
-          			</div>
 				<div class="row">
 				<?php
-				$args = array( 'numberposts' => '4' );
-				$recent_posts = wp_get_recent_posts( $args );
+				$args = array( 'numberposts' => '9' );
+				//$recent_posts = wp_get_recent_posts( $args );
+				$recent_posts = wp_get_recent_posts();
+				$first = true;
+
+
 				foreach( $recent_posts as $recent ){
 				   $post_id = $recent["ID"];
-				   echo '<div class="recent-post-post col-xs-12 col-sm-3">
-					   <article class="recent-post-inner" id='. $post_id. '>
+				   if ($first) {
+				   	echo '<div class="recent-post-post first-post col-xs-12">';
+					$first=false;
+					}
+				   else	{	
+			  		 echo '<div class="recent-post-post col-xs-12 col-sm-3">';
+					}
+					echo '<article class="recent-post-inner" id='. $post_id. '>
 					      <a href="'. get_permalink($post_id) .'">
 					      <div class="recent-post-img" style="background-image: 
 							url('. get_the_post_thumbnail_url($post_id) 
@@ -43,10 +45,17 @@ get_header(); ?>
 						//note: excerpts still not working right - look at interactions with yoast.
 				}
 				wp_reset_query();
+
 				?>
-				<div class="col-xs-12 padtop padbottom text-center">
-			          <a class="btn btn-b-ghost" href="/news">More News</a>
-				</div><!-- #button div -->
+
+				<div class="navigation bottom15">
+        			<span class="newer">
+                  		</span>
+        			<span class="older pull-right">
+          			<a href=" <?php echo get_next_posts_link();?>">Older <i class="fa fa-chevron-right" aria-hidden="true"></i></a>        </span>
+        			<div class="clearfix"></div>
+      				</div>
+
 				</div><!-- #row -->
 				</div><!-- #container -->
 				<div class="flag-banner"></div>
