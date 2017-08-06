@@ -52,7 +52,7 @@ Tags: one-column, custom-menu, editor-style, featured-images, full-width-templat
 
 /* ensure that content isnt touching footer */
 .gmf-footer {
-    margin-top: 40px;
+ //   margin-top: 40px;
 }
 
 /* this section was in the header of milwaukee, not in the main css 

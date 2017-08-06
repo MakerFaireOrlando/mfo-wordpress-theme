@@ -10,7 +10,19 @@
 
 <?php //echo do_shortcode("[wpv-post-body view_template='Footer2']") ?> 
 
+    <section class="cta-panel" style="margin-top:40px"><div class="container">
+          <div class="row text-center">
+            <div class="col-xs-12">
+              <h3><a href="/attend/">Early-Bird Tickets - Save 50% through August 31st <i class="fa fa-chevron-right" aria-hidden="true"></i></a></h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
 <footer class="gmf-footer">
+
+
     <div class="container">
       <div class="row padbottom">
         <div class="col-sm-6 footer-right-border">
