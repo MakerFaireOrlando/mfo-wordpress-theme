@@ -327,7 +327,8 @@ function mfo_sponsor_carousel () {
 					//output each sponsor level here
 					foreach ($sponsor_lvl as $sponsor) {
 					  $ret .='<div class="sponsors-box-lg" id="' . $sponsor["name"]. '"><a href=' . $sponsor["website"] .' target="_blank">';
-					  $ret .= '<img src="'.$sponsor["logo"] .'" class="img-responsive" style="max-height:150px; width:auto;"></a></div>';
+					  $ret .= '<img src="'.$sponsor["logo"] .'" class="img-responsive" style="max-height:150px; width:auto;" alt="' .
+							$sponsor["name"] .'"></a></div>';
 
 					}
 					$ret .='</div></div></div></div>';
