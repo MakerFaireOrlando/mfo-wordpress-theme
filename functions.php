@@ -262,9 +262,9 @@ function mfo_sponsor_carousel () {
                                 </div>
                                 <div class="row">
       	                          <div class="col-xs-12">
-				    <div id="carousel-sponsors-slider" class="carousel slide" data-ride"carousel">
-				    <!-- Wrapper for slides -->';
-
+				    <div id="carousel-sponsors-slider" class="carousel slide" data-ride="carousel">
+				    <!-- Wrapper for slides -->
+				   <div class="carousel-inner" role="listbox">';
 
 				$args = array(
   				'post_type'   => 'sponsor',
@@ -277,23 +277,27 @@ function mfo_sponsor_carousel () {
 				   //$ret .= 'Got Sponsors!';
 				else: $ret .= 'Error, no sponsors CPT found!';
 				endif;
+				//at this point we have a bunch of sponsor posts, but don't 
+				//know which ones are sponsors for this year
 
 				$sponsors_out = [];
 
 				while( $sponsors->have_posts() ) :
         			  $sponsors->the_post();
 				  $years = get_post_meta(get_the_ID(), 'wpcf-sponsor-event-years');
-				  //$debug = var_export($years, true);
-				  //$ret .= $debug;
+
+				  //this returns a lovely array of checkboxes, we have to find the one
+				  //that matches this year.
 
 				  foreach (array_filter($years) as $year) {
 				   foreach (array_filter($year) as $year_sub) {
 				    if ($year_sub[0] == $attr_year) {
-					$order = intval(get_post_meta(get_the_ID(), 'wpcf-sponsor-order', true));
 					$level = intval(get_post_meta(get_the_ID(), 'wpcf-sponsor-level', true));
-					$ret .= '<li>' .  get_the_title() . '-'. $level .'</li>';
-					$arr = array($order, get_the_title(), get_the_ID() );
+					$website = get_post_meta(get_the_ID(), 'wpcf-sponsor-website', true);
+					$logo= get_the_post_thumbnail_url($post_id, true);
+					$arr = array('name'=> get_the_title(), 'id'=>get_the_ID(), 'website'=>$website, 'logo' =>$logo );
 					if ($level)  {
+						//build array of sponsors by level
 						if (!is_array($sponsors_out[$level])){
 							 $sponsors_out[$level] = array();
 						}
@@ -304,53 +308,43 @@ function mfo_sponsor_carousel () {
 				  }
 				endwhile;
 
-				$debug = var_export($sponsors_out, true);
-                                $ret .= 'unsorted' . $debug.'<br>';
 
-				usort($sponsors_out,"cmp_sponsor");
+				ksort($sponsors_out); //sort levels
+				$active=" active"; //setup the first item in the carousel
 
-				$debug = var_export($sponsors_out, true);
-                                $ret .= 'sorted' . $debug.'<br>';
+				foreach ($sponsors_out as $lvl => $sponsor_lvl) {
+					//sort sponsors within level by alpha using comparison function
+					uasort($sponsor_lvl,"cmp_sponsor_name");
+					//$ret .= 'sponsor_lvl:'.$lvl. ":" . json_encode($sponsor_lvl) ."<br>";
 
-				//may need a sort function like in the comments here - http://php.net/manual/en/function.asort.php
+				 	$ret .= '<div class="item'. $active.'" id="'. $lvl .'">
+						  <div class="row spnosors-row">
+					    	    <div class="col-xs-12">
+						      <h5 class="text-center sponsors-type">Sponsor Level</h5>
+							<div class="faire-sponsors-box">';
 
+
+					//output each sponsor level here
+					foreach ($sponsor_lvl as $sponsor) {
+					  $ret .='<div class="sponsors-box-lg" id="' . $sponsor["name"]. '"><a href=' . $sponsor["website"] .' target="_blank">';
+					  $ret .= '<img src="'.$sponsor["logo"] .'" class="img-responsive" style="max-height:150px; width:auto;"></a></div>';
+
+					}
+					$ret .='</div></div></div></div>';
+					$active="";
+				}
 
 
       				wp_reset_postdata();
 
-				
 
+                        $ret .= '</div><!-- #carousel-inner -->
+				</div><!-- #row -->
+                                </div><!-- #container -->
+                                </section>';
 
-				//foreach ($sponsors_out as $sponsor_out) {
-				//  }
-
-/*
-                                foreach( $recent_posts as $recent ){
-                                   $post_id = $recent["ID"];
-                                   $ret.= '<div class="recent-post-post col-xs-12 col-sm-3">
-                                           <article class="recent-post-inner" id='. $post_id. '>
-                                              <a href="'. get_permalink($post_id) .'">
-                                              <div class="recent-post-img" style="background-image: 
-                                                        url('. get_the_post_thumbnail_url($post_id) 
-                                                                .'?resize=300%2C300&amp;quality=80&amp;strip=all);">
-                                                </div>
-                                             <div class="recent-post-text">
-                                                <h4>' . $recent["post_title"] . '</h4>
-                                                <p class="recent-post-date">' . get_the_date( 'l F j, Y' , $post_id) . '</p>
-                                                <p class="recent-post-description">' . wp_strip_all_tags(get_the_excerpt($post_id), true) . '</p>
-                                             </div>
-                                             </a></article></div>';
-
-                                                //note: excerpts still not working right - look at interactions with yoast.
-                                }
-                                wp_reset_query();
-*/
-
-                        $ret.= '<div class="col-xs-12 padtop padbottom text-center">
-                                  <a class="btn btn-b-ghost" href="/news">More News</a>
-                                </div><!-- #button div -->
-                                </div><!-- #row -->
-                                </div><!-- #container -->';
+			//final array output debugging if needed
+			//$ret .= json_encode($sponsors_out);
 
 	return $ret;
 }
@@ -358,12 +352,10 @@ function mfo_sponsor_carousel () {
 add_shortcode ('mfo-sponsor-carousel', 'mfo_sponsor_carousel');
 
 
-function cmp_sponsor($a, $b)
+
+function cmp_sponsor_name($a, $b)
 {
-    if ($a[0] == $b[0]) {
-        return 0;
-    }
-    return ($a[0] < $b[0]) ? -1 : 1;
+ return strcmp($a["name"], $b["name"]);
 }
 
 
