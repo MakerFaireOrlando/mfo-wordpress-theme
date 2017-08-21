@@ -262,7 +262,7 @@ function mfo_sponsor_carousel () {
                                 </div>
                                 <div class="row">
       	                          <div class="col-xs-12">
-				    <div id="carousel-sponsors-slider" class="carousel slide" data-ride="carousel">
+				    <div id="carousel-sponsors-slider" class="carousel slide" data-ride="carousel" data-interval="3000">
 				    <!-- Wrapper for slides -->
 				   <div class="carousel-inner" role="listbox">';
 
