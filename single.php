@@ -24,10 +24,11 @@ get_header(); ?>
 				<a class="entry-format" href="<?php echo esc_url( get_post_format_link( get_post_format() ) ); ?>" title="<?php echo esc_attr( sprintf( __( 'All %s posts', 'coraline' ), get_post_format_string( get_post_format() ) ) ); ?>"><?php echo esc_html( get_post_format_string( get_post_format() ) ); ?></a>
 			<?php endif; ?>
 
+			<?php if ( get_post_type() == 'post') : ?>
 				<div class="all-posts-btn">
 				 <a href="/news"><i class="fa fa-chevron-left" aria-hidden="true"></i> All News</a>
 				</div>
-
+			<?php endif; ?>
 
 			<?php 
 			  the_title( '<h2 class="page-header">', '</h2>' ); 
