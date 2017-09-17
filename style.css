@@ -17,6 +17,29 @@ Tags: one-column, custom-menu, editor-style, featured-images, full-width-templat
  *
  */
 
+/* temporary fixes below - will eventually replace */
+#page-content{
+  margin-top:50px;
+}
+
+#post-1828 h3{
+  margin-top: 50px;
+}
+
+#post-1828 ul{
+  margin-top: 15px;
+}
+
+#post-1828 li{
+  list-style-type: none;
+  margin: 5px 0;
+}
+
+.mtm{
+  margin: 10px 0 30px !important;
+}
+/* temporary fixes above - will eventually replace */
+
 .carousel-inner>.item {
 background:none;
 border:none;
@@ -61,11 +84,11 @@ border:none;
 
 /* ensure that content isnt touching footer */
 .gmf-footer {
- //   margin-top: 40px;
+ /*    margin-top: 40px; regex fix */
 }
 
-/* this section was in the header of milwaukee, not in the main css 
- * !important was added to overcome load order issue 
+/* this section was in the header of milwaukee, not in the main css
+ * !important was added to overcome load order issue
  */
 a.btn,
 a.btn-b-ghost {
@@ -103,16 +126,19 @@ a.btn-b-ghost {
 
 /* STUFF FOR ISOTOPE - NEEDS TO BE CLEANED UP */
 .item {
-  /*width: 25%;*/
-  /*border: 1px solid darkgray;*/
-  background: rgb(242, 242, 242);
+  max-width: 25%;
+  /* border: 1px solid darkgray; */
+  /* background: rgb(242, 242, 242); */
+  background: rgb(250,250,250); /* change from Ryan */
   padding-top: 10px;
   text-align: center;
   border-radius: 4px;
-  margin-bottom: 20px;
-  border: 1px solid #e5e5e5;
+  /* margin-bottom: 20px; */
+  /* border: 1px solid #e5e5e5; */
+  margin: 7px; /* change from Ryan */
+  border: 3px solid rgb(240,240,240); /* change from Ryan */
   min-width: 300px;
-   display:inline-block;
+  display:inline-block;
 }
 
 .title-container {
@@ -137,10 +163,11 @@ max-width: 270px;
 }
 
 .img-container {
- //min-height:300px;
- // height:auto;
- //padding:10px;
+ /* min-height:300px; regex fix */
+ /*  height:auto; regex fix */
+ /* padding:10px; regex fix */
  display:inline-block;
+ padding: 8px; /* change from Ryan */
 }
 
 .img-container a {
@@ -156,20 +183,29 @@ max-width: 270px;
 }
 
 .exhibits-container {
-margin:20px;
+  /* margin:20px; */
+  margin:35px auto; /* change from Ryan */
 }
 
+/* change from Ryan */
+.exhibits-container .item img{
+  max-width:100%;
+  border-radius: 8px;
+}
+/* change from Ryan */
 
-//makers search and filter
+
+/* makers search and filter */
 
 .exhibits-search row {
   height: 100px;
 }
 
 .mtm .mtm-search {
- // min-height: 120px;
+  /* min-height: 120px; */
   height: auto;
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
+  padding: 15px 0 20px; /* change from Ryan */
 }
 
 .search-filter-label {
@@ -179,4 +215,3 @@ margin:20px;
 #maker-search-input {
   min-width: 300px;
 }
-
