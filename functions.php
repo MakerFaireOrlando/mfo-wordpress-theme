@@ -352,6 +352,129 @@ function mfo_sponsor_carousel () {
 
 add_shortcode ('mfo-sponsor-carousel', 'mfo_sponsor_carousel');
 
+/*
+ * [mfo-sponsor-list] shortcode
+ *
+ *
+ */
+function mfo_sponsor_list () {
+     $attr_year = 2017;
+
+	//lets get the sponsor levels
+	//from: https://wp-types.com/forums/topic/getting-options-of-a-types-dropdown-field-with-php/
+
+	$option_values_select=get_option('wpcf-fields');
+	$actual_option_value=$option_values_select['sponsor-level']['data']['options'];
+
+	$sponsor_levels = [];
+	//Loop and build array
+	if ((!(empty($actual_option_value))) && (is_array($actual_option_value))) {
+		foreach ($actual_option_value as $k=>$v) {
+		  //echo 'Title: '.$v['title'].'====>'.'Value: '.$v['value'];
+		  //echo '<br>';
+		if (intval($v['value']) != 'n'){
+		  $sponsor_levels[$v['value']] = $v['title'];
+		  }
+		}
+	}
+
+
+     $ret =  '<div class="container sponsors-landing">
+                  <div class="row padbottom">
+			<div class="col-xs-12">
+      			<h2 class="pull-left">Sponsors</h2>
+
+      			<a class="sponsors-btn-top" href="/become-a-sponsor/">BECOME A SPONSOR</a>
+    			</div>
+		  </div>';
+
+
+				$args = array(
+  				'post_type'   => 'sponsor',
+  				'post_status' => 'publish',
+				'posts_per_page' => -1
+				 );
+
+				$sponsors = new WP_Query( $args );
+				if( $sponsors->have_posts() ) :
+				   //$ret .= 'Got Sponsors!';
+				else: $ret .= 'Error, no sponsors CPT found!';
+				endif;
+				//at this point we have a bunch of sponsor posts, but don't 
+				//know which ones are sponsors for this year
+
+				$sponsors_out = [];
+
+				while( $sponsors->have_posts() ) :
+        			  $sponsors->the_post();
+				  $years = get_post_meta(get_the_ID(), 'wpcf-sponsor-event-years');
+
+				  //this returns a lovely array of checkboxes, we have to find the one
+				  //that matches this year.
+
+
+
+				  foreach (array_filter($years) as $year) {
+				   foreach (array_filter($year) as $year_sub) {
+				    if ($year_sub[0] == $attr_year) {
+					$level = intval(get_post_meta(get_the_ID(), 'wpcf-sponsor-level', true));
+
+
+					$website = get_post_meta(get_the_ID(), 'wpcf-sponsor-website', true);
+					$logo= get_the_post_thumbnail_url($post_id, true);
+					$arr = array('name'=> get_the_title(), 'id'=>get_the_ID(), 'website'=>$website, 'logo' =>$logo );
+					if ($level)  {
+						//build array of sponsors by level
+						if (!is_array($sponsors_out[$level])){
+							 $sponsors_out[$level] = array();
+						}
+						array_push($sponsors_out[$level], $arr );
+					}
+				    }
+				   }
+				  }
+				endwhile;
+
+
+				ksort($sponsors_out); //sort levels
+
+				foreach ($sponsors_out as $lvl => $sponsor_lvl) {
+					//sort sponsors within level by alpha using comparison function
+					uasort($sponsor_lvl,"cmp_sponsor_name");
+
+					$lvl_title = $sponsor_levels[$lvl];
+				 	$ret .= '<div class="row spnosors-row">
+					    	    <div class="col-xs-12">
+						      <h2 class="text-center sponsors-type">' . $lvl_title . '</h2>
+							<div class="faire-sponsors-box">';
+
+
+					//output each sponsor level here
+					foreach ($sponsor_lvl as $sponsor) {
+					  $ret .='<div class="sponsors-box-lg" id="' . $sponsor["name"]. '"><a href=' . $sponsor["website"] .' target="_blank">';
+					  $ret .= '<img src="'.$sponsor["logo"] .'" class="img-responsive" style="max-height:150px; width:auto;" alt="' .
+							$sponsor["name"] .'"></a></div>';
+
+					}
+					$ret .='</div></div></div>';
+				}
+
+
+      				wp_reset_postdata();
+
+
+                        $ret .= '</div><!-- #row -->
+                                </div><!-- #container -->
+                                </div>';
+
+			//final array output debugging if needed
+			//$ret .= json_encode($sponsors_out);
+
+	return $ret;
+}
+
+add_shortcode ('mfo-sponsor-list', 'mfo_sponsor_list');
+
 
 
 function cmp_sponsor_name($a, $b)
