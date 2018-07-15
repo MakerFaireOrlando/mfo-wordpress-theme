@@ -13,7 +13,7 @@
     <section class="cta-panel" style="margin-top:40px"><div class="container">
           <div class="row text-center">
             <div class="col-xs-12">
-              <h3><a href="/attend/">Online Savings for One & Two Day Tickets! <i class="fa fa-chevron-right" aria-hidden="true"></i></a></h3>
+              <h3><a href="http://eepurl.com/bpCB8T">Subscribe for the Latest Maker News! <i class="fa fa-chevron-right" aria-hidden="true"></i></a></h3>
             </div>
           </div>
         </div>

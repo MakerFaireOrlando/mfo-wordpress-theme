@@ -249,7 +249,8 @@ add_shortcode ('mfo-recent-posts', 'mfo_recent_posts');
  *
  */
 function mfo_sponsor_carousel () {
-     $attr_year = 2017;
+     $attr_year = 2018;
+     //todo make this a setting?
 
      $ret =  '<section class="sponsor-slide">
                   <div class="container">
