@@ -13,7 +13,7 @@
     <section class="cta-panel" style="margin-top:40px"><div class="container">
           <div class="row text-center">
             <div class="col-xs-12">
-              <h3><a href="http://eepurl.com/bpCB8T">Subscribe for the Latest Maker News! <i class="fa fa-chevron-right" aria-hidden="true"></i></a></h3>
+              <h3><a href="<?php echo mfo_footer_cta_url();?>"><?php echo mfo_footer_cta_text()?> <i class="fa fa-chevron-right" aria-hidden="true"></i></a></h3>
             </div>
           </div>
         </div>
