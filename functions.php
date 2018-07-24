@@ -359,7 +359,7 @@ add_shortcode ('mfo-sponsor-carousel', 'mfo_sponsor_carousel');
  *
  */
 function mfo_sponsor_list () {
-     $attr_year = 2017;
+     $attr_year = 2018;
 
 	//lets get the sponsor levels
 	//from: https://wp-types.com/forums/topic/getting-options-of-a-types-dropdown-field-with-php/
