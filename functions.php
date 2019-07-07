@@ -249,8 +249,7 @@ add_shortcode ('mfo-recent-posts', 'mfo_recent_posts');
  *
  */
 function mfo_sponsor_carousel () {
-     $attr_year = 2018;
-     //todo make this a setting?
+     $attr_year = mfo_sponsors_year();
 
      $ret =  '<section class="sponsor-slide">
                   <div class="container">
@@ -359,7 +358,7 @@ add_shortcode ('mfo-sponsor-carousel', 'mfo_sponsor_carousel');
  *
  */
 function mfo_sponsor_list () {
-     $attr_year = 2018;
+     $attr_year = mfo_sponsors_year();
 
 	//lets get the sponsor levels
 	//from: https://wp-types.com/forums/topic/getting-options-of-a-types-dropdown-field-with-php/
