@@ -357,7 +357,17 @@ function mfo_sponsor_carousel () {
 
 
                         $ret .= '</div><!-- #carousel-inner -->
-				</div><!-- #row -->
+				</div><!-- #row -->';
+
+			$ret .= '<div class="row sponsor_panel_bottom">
+          				<div class="col-xs-12 text-center">
+            					<p><a href="/become-a-sponsor/">Become a Sponsor</a><span>•</span>
+              						<a href="/sponsors">All ';
+			$ret .= mfo_sponsors_year();
+			$ret .=	' Sponsors</a>
+            					</p>
+          				</div>
+        			</div>
                                 </div><!-- #container -->
                                 </section>';
 
