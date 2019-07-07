@@ -5,6 +5,23 @@
 
 
 /**
+ * Add body class for the news page
+ * which is home.php
+ *
+ */
+
+add_filter('body_class', 'mfo_body_classes');
+
+function mfo_body_classes($classes) {
+
+	if (is_home()) {
+		$classes[] = "page-template";
+		$classes[] = "page-template-blog";
+	}
+        return $classes;
+}
+
+/**
  *Declare menu locations
  *
  */

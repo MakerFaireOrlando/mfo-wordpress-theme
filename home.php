@@ -9,8 +9,8 @@
 get_header(); ?>
 
   <div id="page-content">
-  	<div id="page-body">
-			<section class="recent-post-panel">
+  	<div class="container">
+		<div id="post-" class="post-366 page type-page status-publish hentry">
  		          <div class="container">
 				<div class="row">
 				<?php
@@ -64,7 +64,7 @@ get_header(); ?>
 				</div><!-- #container -->
 				<div class="flag-banner"></div>
 
-			</section>
-	</div><!-- #page-body -->
+		</div>
+	</div>
 
 <?php get_footer(); ?>
