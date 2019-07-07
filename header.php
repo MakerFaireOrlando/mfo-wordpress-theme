@@ -63,7 +63,7 @@
 
 <div class="flag-banner header-flag"></div>
 
-<nav class="navbar navbar-default <?php echo is_home() ? 'nav-home' :  'nav-not-home'; ?>" role="navigation" id="slide-nav">
+<nav class="navbar navbar-default nav-not-home" role="navigation" id="slide-nav">
     <div class="container text-center nav-flex">
       <div class="navbar-header">
         <a class="navbar-toggle"> 
