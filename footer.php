@@ -84,23 +84,6 @@
               </ul>
             </div>
             <div class="col-xs-6 footer-no-rt-pad">
-              <ul class="list-unstyled footer-right-col">
-                <li>
-                  <p>Explore Making</p>
-                </li>
-                <li>
-                  <a href="http://makezine.com/" target="_blank">Make: News & Projects</a>
-                </li>
-                <li>
-                  <a href="http://www.makershed.com/" target="_blank">Maker Shed</a>
-                </li>
-                <li>
-                  <a href="http://makercamp.com/" target="_blank">Maker Camp</a>
-                </li>
-                <li>
-                  <a href="https://readerservices.makezine.com/mk/default.aspx" target="_blank">Subscribe to Make:</a>
-                </li>
-              </ul>
             </div>
           </div>
           <div class="row">
@@ -125,11 +108,6 @@
                   <li>
                     <a href="//www.pinterest.com/makemagazine/maker-faire/" class="icoPinterest" title="Pinterest" target="_blank">
                       <i class="fa fa-pinterest-p"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="//plus.google.com/104410464300110463062/posts" class="icoGoogle-plus" title="Google+" target="_blank">
-                      <i class="fa fa-google-plus"></i>
                     </a>
                   </li>
                 </ul>
