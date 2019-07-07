@@ -62,7 +62,6 @@ get_header(); ?>
 
 				</div><!-- #row -->
 				</div><!-- #container -->
-				<div class="flag-banner"></div>
 
 		</div>
 	</div>
