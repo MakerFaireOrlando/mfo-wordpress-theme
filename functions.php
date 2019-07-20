@@ -311,11 +311,11 @@ function mfo_sponsor_carousel () {
 				    if ($year_sub[0] == $attr_year) {
 					$level = intval(get_post_meta(get_the_ID(), 'wpcf-sponsor-level', true));
 					$website = get_post_meta(get_the_ID(), 'wpcf-sponsor-website', true);
-					$logo= get_the_post_thumbnail_url($post_id, true);
+					$logo= get_the_post_thumbnail_url(get_the_ID(), true);
 					$arr = array('name'=> get_the_title(), 'id'=>get_the_ID(), 'website'=>$website, 'logo' =>$logo );
 					if ($level)  {
 						//build array of sponsors by level
-						if (!is_array($sponsors_out[$level])){
+						if (!array_key_exists($level, $sponsors_out)){
 							 $sponsors_out[$level] = array();
 						}
 						array_push($sponsors_out[$level], $arr );
