@@ -62,7 +62,7 @@
 
         <div class="col-sm-6 footer-right hidden-xs">
           <div class="footer-logo-div">
-    <a href="http://makerfaire.com/" target="_blank">
+    <a href="https://makerfaire.com/" target="_blank">
         <img class="img-responsive footer-logos" src="//global.makerfaire.com/wp-content/themes/MiniMakerFaire/img/Maker-Faire-Logo.png" alt="Maker Faire logo">
             </a>
           </div>
@@ -70,16 +70,16 @@
             <div class="col-xs-6">
               <ul class="list-unstyled">
                 <li>
-                  <a href="http://makerfaire.com/makerfairehistory" target="_blank">About Maker Faire</a>
+                  <a href="https://makerfaire.com/makerfairehistory/" target="_blank">About Maker Faire</a>
                 </li>
                 <li>
-                  <a href="http://makerfaire.com/map" target="_blank">Find a Faire Near You</a>
+                  <a href="https://makerfaire.com/map/" target="_blank">Find a Faire Near You</a>
                 </li>
                 <li>
-                  <a href="http://makerfaire.com/be-a-maker" target="_blank">Be a Maker</a>
+                  <a href="https://makerfaire.com/be-a-maker/" target="_blank">Be a Maker</a>
                 </li>
                 <li>
-                  <a href="//help.makermedia.com/hc/en-us/categories/200333245-Maker-Faire" target="_blank">Maker Faire FAQs</a>
+                  <a href="https://help.makermedia.com/hc/en-us/categories/200333245-Maker-Faire" target="_blank">Maker Faire FAQs</a>
                 </li>
               </ul>
             </div>
@@ -91,17 +91,17 @@
               <div class="social-network-container">
                 <ul class="social-network social-circle">
                   <li>
-                    <a href="//www.facebook.com/makerfaire" class="icoFacebook" title="Facebook" target="_blank">
+                    <a href="https://www.facebook.com/makerfaire" class="icoFacebook" title="Facebook" target="_blank">
                       <i class="fa fa-facebook"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="//twitter.com/makerfaire" class="icoTwitter" title="Twitter" target="_blank">
+                    <a href="https://twitter.com/makerfaire" class="icoTwitter" title="Twitter" target="_blank">
                       <i class="fa fa-twitter"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="//www.instagram.com/makerfaire" class="icoInstagram" title="Instagram" target="_blank">
+                    <a href="https://www.instagram.com/makerfaire/" class="icoInstagram" title="Instagram" target="_blank">
                       <i class="fa fa-instagram"></i>
                     </a>
                   </li>
