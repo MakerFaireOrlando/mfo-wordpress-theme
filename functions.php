@@ -273,7 +273,8 @@ function mfo_sponsor_carousel () {
                                 <div class="row sponsor_panel_title">
                                    <div class="col-xs-12 text-center">
                                     <div class="title-w-border-r">
-                                      <h2 class="sponsor-slide-title">Sponsors</h2>
+                                      <h2 class="sponsor-slide-title">';
+	$ret .= $attr_year .  ' Sponsors</h2>
                                     </div>
                                    </div>
                                 </div>
