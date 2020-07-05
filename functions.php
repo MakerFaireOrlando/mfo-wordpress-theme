@@ -115,16 +115,23 @@ add_action( 'wp_enqueue_scripts', 'theme_js');
 function remove_image_sizes() {
 	remove_image_size("coraline-image-template");
 	remove_image_size("post-thumbnail");
+	remove_image_size("medium_large");
+	remove_image_size("1536x1536");
+	remove_image_size("2048x2048");
 
 	//sensei
 	remove_image_size("course_single_thumbnail");
 	remove_image_size("course_archive_thumbnail");
 	remove_image_size("lesson_single_thumbnail");
 	remove_image_size("lesson_archive_thumbnail");
+
 	//woocommerce
 	remove_image_size("shop_thumbnail");
 	remove_image_size("shop_single");
 	remove_image_size("shop_catalog");
+	remove_image_size("woocommerce_thumbnail");
+	remove_image_size("woocommerce_single");
+	remove_image_size("woocommerce_gallery_thumbnail");
 
 	//note medium-large is a new wordpress standard size for responsive themes
 }
